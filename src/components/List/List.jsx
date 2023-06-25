@@ -2,11 +2,11 @@ import { Box, FormControl, Grid, InputLabel, MenuItem, Select, Typography, style
 import { useState } from "react"
 import PlaceDetials from "../PlaceDetails/PlaceDetials"
 
-const List = () => {
+const List = ({places}) => {
 
     const [type, setType] = useState('Restaurents')
     const [rating, setRating] = useState('')
-    const places = [
+    const placess = [
         { name: 'lost agellosla' },
         { name: 'lost agellosla' },
         { name: 'lost agellosla' },
@@ -31,6 +31,7 @@ const List = () => {
         { name: 'lost agellosla' },
 
     ]
+ 
 
     return (
         <Box  
@@ -79,7 +80,7 @@ const List = () => {
                 </Box>
             </Box>
 
-            <StyledGrid container spacing={3}    >
+            <StyledGrid  sx={{padding:{xs:'5px',md:'10px'}}} container spacing={3}    >
                 {places?.map((place) => {
                     return (<Grid item xs={12}>
                         <PlaceDetials place={place} />
@@ -96,7 +97,7 @@ const List = () => {
 export default List
 
 const StyledGrid = styled(Grid)({
-    overflowY: 'auto',
+    overflow: 'auto',
     height: '63vh',
     scrollbarWidth: 'thin',
     '&::-webkit-scrollbar': {
@@ -114,3 +115,5 @@ const StyledGrid = styled(Grid)({
         borderRadius: '4px',
       },
 })
+
+ 
